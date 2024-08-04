@@ -2,6 +2,7 @@ import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'reac
 import React, { useState } from 'react';
 import { MaterialIcons, Ionicons } from '@expo/vector-icons';
 import axios from 'axios';
+import { StatusBar } from 'expo-status-bar';
 
 const Scr001 = ({ navigation }) => {
 
@@ -26,6 +27,7 @@ const Scr001 = ({ navigation }) => {
 
     return (
         <View style={styles.Container}>
+            <StatusBar backgroundColor='#fff' />
             <View>
                 <Text style={styles.RegistationText}>Register</Text>
                 <Text style={styles.registationText}>Welcome! Fill the details to create a new account.</Text>

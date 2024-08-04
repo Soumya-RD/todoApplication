@@ -8,16 +8,55 @@ import Scr003 from './screens/Scr003';
 import Scr004 from './screens/Scr004';
 
 
+
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name='Scr001' component={Scr001} />
-        <Stack.Screen name='Scr002' component={Scr002} />
-        <Stack.Screen name='Scr003' component={Scr003} />
-       < Stack.Screen name='Scr004' component={Scr004}/>
+
+        {/* Styling the header */}
+        <Stack.Screen name='Scr001' component={Scr001}
+          options={{
+            title: '',
+            headerStyle: { backgroundColor: '#efe6dd' }
+          }}
+
+        />
+        <Stack.Screen name='Scr002' component={Scr002}
+          options={{
+            title: '',
+            headerStyle: {
+              backgroundColor: '#efe6dd'
+            }
+          }}
+        />
+        <Stack.Screen name='Scr003' component={Scr003}
+          options={{
+            title: 'Your Activities',
+            headerStyle: {
+              backgroundColor: '#cbdfbd'
+            },
+            headerTitleStyle: {
+              fontSize: 25,
+              fontWeight: 'bold',
+
+            },
+
+          }}
+        />
+        < Stack.Screen name='Scr004' component={Scr004}
+          options={{
+            title: 'Add new Task',
+            headerTitleStyle: {
+              fontWeight: 'bold'
+            },
+            headerStyle: {
+              backgroundColor: '#a4bab7',
+            }
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
