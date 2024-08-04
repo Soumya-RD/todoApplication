@@ -22,6 +22,8 @@ const Scr001 = ({ navigation }) => {
         }
     }
 
+
+
     return (
         <View style={styles.Container}>
             <View>

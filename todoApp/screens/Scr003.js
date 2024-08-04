@@ -8,9 +8,9 @@ import { AntDesign } from '@expo/vector-icons';
 const Scr003 = ({ navigation }) => {
   return (
     <View style={styles.Container}>
-      <View style={styles.todayContainer}>
+      {/* <View style={styles.todayContainer}>
         <Text style={styles.todayText}>Today's Activity</Text>
-      </View>
+      </View> */}
 
       {/* add button */}
       <TouchableOpacity onPress={() => navigation.navigate('Scr004')} style={styles.addContainer} >
@@ -72,24 +72,24 @@ export default Scr003
 const styles = StyleSheet.create({
 
   Container: {
-    backgroundColor: '#a3cef1',
+    backgroundColor: '#cbdfbd',
     flex: 1
   },
-  todayContainer: {
-    borderWidth: 1,
-    width: 200,
-    marginLeft: 80,
-    marginTop: 10,
-    borderRadius: 5,
-    backgroundColor: '#3d405b'
+  // todayContainer: {
+  //   borderWidth: 1,
+  //   width: 200,
+  //   marginLeft: 80,
+  //   marginTop: 10,
+  //   borderRadius: 5,
+  //   backgroundColor: '#352208'
 
-  },
-  todayText: {
-    fontWeight: 'bold',
-    fontSize: 20,
-    textAlign: 'center',
-    color: '#fff'
-  },
+  // },
+  // todayText: {
+  //   fontWeight: 'bold',
+  //   fontSize: 20,
+  //   textAlign: 'center',
+  //   color: '#fff'
+  // },
 
   addContainer: {
     flexDirection: 'row',
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     width: 80,
     borderRadius: 5,
     height: 30,
-    backgroundColor: '#264653'
+    backgroundColor: '#233d4d'
 
   },
   addText: {
@@ -112,13 +112,15 @@ const styles = StyleSheet.create({
 
 
   },
- 
+
   taskContainer: {
-    borderWidth: 1,
+   
     marginTop: 10,
     borderRadius: 5,
-    backgroundColor: '#70e000',
-    
+    backgroundColor: '#001427',
+    height: 25,
+    justifyContent: 'center'
+
   },
   taskHeader: {
     flexDirection: 'row',
@@ -127,24 +129,28 @@ const styles = StyleSheet.create({
   },
   task: {
     fontWeight: 'bold',
-    marginLeft: 5,
-    textAlign: 'center'
+    textAlign: 'center',
+    color: '#eaf4f4'
   },
   slnoView: {
-    width: 50,
-   
+    width: 40,
+
+
   },
   taskView: {
     width: 100,
-    borderLeftWidth:1
+    borderLeftWidth: 3,
+    borderColor: '#3c6e71'
   },
   timeView: {
     width: 80,
-    borderLeftWidth:1
+    borderLeftWidth: 3,
+    borderColor: '#3c6e71'
   },
   editView: {
     width: 50,
-    borderLeftWidth:1
+    borderLeftWidth: 3,
+    borderColor: '#3c6e71'
   },
 
 })

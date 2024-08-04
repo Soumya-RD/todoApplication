@@ -5,11 +5,11 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 const Scr004 = () => {
   return (
-    <View>
+    <View style={styles.headContainer}>
       <View style={styles.Container}>
-        <View style={styles.AddTaskContainer}>
+        {/* <View style={styles.AddTaskContainer}>
           <Text style={styles.AddTaskText}>Add  Activity</Text>
-        </View>
+        </View> */}
 
 
 
@@ -57,33 +57,40 @@ const Scr004 = () => {
 export default Scr004
 
 const styles = StyleSheet.create({
+  headContainer: {
+    backgroundColor: '#a4bab7',
+    flex: 1
+  },
 
   Container: {
-  marginLeft:10,
-  marginTop:50
+    marginLeft: 10,
+    marginTop: 100,
+
 
   },
-  AddTaskContainer: {
-    borderWidth: 1,
-    marginTop: 5,
-    width: 100,
-    marginLeft: 120,
-    borderRadius: 5
-  },
-  AddTaskText: {
-    textAlign: 'center',
-    fontWeight: 'bold',
-    height: 30,
-    paddingTop: 5,
-    fontSize: 18
-  },
+  // AddTaskContainer: {
+  //   borderWidth: 1,
+  //   marginTop: 5,
+  //   width: 100,
+  //   marginLeft: 120,
+  //   borderRadius: 5,
+  //   backgroundColor:'#d9d9d9'
+  // },
+  // AddTaskText: {
+  //   textAlign: 'center',
+  //   fontWeight: 'bold',
+  //   height: 30,
+  //   paddingTop: 5,
+  //   fontSize: 18
+  // },
   StartTimeContainer: {
     borderWidth: 1,
     width: 200,
     marginLeft: 70,
-    marginTop: 5,
+    marginTop: 20,
     flexDirection: 'row',
-    borderRadius: 10
+    borderRadius: 10,
+    backgroundColor: '#d9d9d9'
   },
   StartTimeTextInput: {
     width: 130,
@@ -97,7 +104,8 @@ const styles = StyleSheet.create({
     marginLeft: 70,
     marginTop: 5,
     flexDirection: 'row',
-    borderRadius: 10
+    borderRadius: 10,
+    backgroundColor: '#d9d9d9'
   },
   FinishTimeTextInput: {
     width: 130,
@@ -111,7 +119,8 @@ const styles = StyleSheet.create({
     marginLeft: 70,
     marginTop: 5,
     flexDirection: 'row',
-    borderRadius: 10
+    borderRadius: 10,
+     backgroundColor:'#d9d9d9'
   },
   taskTextInput: {
     width: 130,
@@ -121,7 +130,7 @@ const styles = StyleSheet.create({
   },
   ButtomContainer: {
     flexDirection: 'row',
-    marginTop: 15,
+    marginTop: 25,
     marginLeft: 105
   },
   CancelView: {
@@ -129,11 +138,14 @@ const styles = StyleSheet.create({
     width: 60,
     height: 25,
     paddingTop: 2,
-    borderRadius: 5
+    borderRadius: 5,
+    backgroundColor: '#d90429'
   },
   text: {
     fontWeight: 'bold',
     textAlign: 'center',
+    color: '#fff'
+
 
   },
   SaveView: {
@@ -142,6 +154,7 @@ const styles = StyleSheet.create({
     height: 25,
     paddingTop: 2,
     borderRadius: 5,
-    marginLeft: 10
+    marginLeft: 10,
+    backgroundColor: '#283618'
   }
 })
