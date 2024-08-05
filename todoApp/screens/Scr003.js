@@ -3,14 +3,11 @@
 
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
-import { AntDesign } from '@expo/vector-icons';
+
 
 const Scr003 = ({ navigation }) => {
   return (
     <View style={styles.Container}>
-      {/* <View style={styles.todayContainer}>
-        <Text style={styles.todayText}>Today's Activity</Text>
-      </View> */}
 
       {/* add button */}
       <TouchableOpacity onPress={() => navigation.navigate('Scr004')} style={styles.addContainer} >
@@ -75,21 +72,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#cbdfbd',
     flex: 1
   },
-  // todayContainer: {
-  //   borderWidth: 1,
-  //   width: 200,
-  //   marginLeft: 80,
-  //   marginTop: 10,
-  //   borderRadius: 5,
-  //   backgroundColor: '#352208'
-
-  // },
-  // todayText: {
-  //   fontWeight: 'bold',
-  //   fontSize: 20,
-  //   textAlign: 'center',
-  //   color: '#fff'
-  // },
 
   addContainer: {
     flexDirection: 'row',

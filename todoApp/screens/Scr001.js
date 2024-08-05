@@ -1,14 +1,16 @@
-import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Alert, Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import React, { useState } from 'react';
 import { MaterialIcons, Ionicons } from '@expo/vector-icons';
 import axios from 'axios';
 import { StatusBar } from 'expo-status-bar';
+import { ActivityIndicator } from 'react-native';
 
 const Scr001 = ({ navigation }) => {
 
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [loader, setLoder] = useState(false);
 
     const handleRegister = async () => {
         try {
@@ -22,6 +24,15 @@ const Scr001 = ({ navigation }) => {
             Alert.alert("Error", "Username or email already exists");
         }
     }
+
+    const display = () => {
+        setLoder(true);
+        setTimeout(() => {
+            setLoder(false);
+        }, 5000);
+    }
+
+
 
 
 
@@ -65,11 +76,14 @@ const Scr001 = ({ navigation }) => {
                     <Ionicons name="eye" size={24} color="black" />
                 </View>
             </View>
-
+            {
+                loader ? <ActivityIndicator style={styles.loader} />
+                    : null
+            }
             <View style={styles.SubmitContainer}>
-                <TouchableOpacity onPress={handleRegister}>
+                <Pressable onPress={handleRegister} onPressIn={display} >
                     <Text style={styles.SubmitText}>Submit</Text>
-                </TouchableOpacity>
+                </Pressable>
             </View>
 
             <View style={styles.LoginContainer}>
@@ -77,9 +91,9 @@ const Scr001 = ({ navigation }) => {
                     <Text style={styles.LoginText}>Login into existing account? </Text>
                 </View>
                 <View style={styles.loginButton}>
-                    <TouchableOpacity onPress={() => navigation.navigate('Scr002')}>
+                    <Pressable onPress={() => navigation.navigate('Scr002')} onPressIn={display}>
                         <Text style={styles.LoginText1}>Login</Text>
-                    </TouchableOpacity>
+                    </Pressable>
                 </View>
             </View>
         </View>
@@ -173,5 +187,6 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         height: 25,
         backgroundColor: '#003049'
-    }
+    },
+
 });
