@@ -1,21 +1,21 @@
 # Todo Application
 A simple Todo application built with React Native for the front-end, Node.js with Express.js for the back-end, and MongoDB for the database.
 This app allows users to
-create,
-read,
-update, and 
-delete todo items.
+→ create,
+→ read,
+→ update, and 
+→ delete todo items.
 
 
 
 
 # Features
-Create new todo items
-Read existing todo items
-Update todo items
-Delete todo items
-User authentication (if applicable)
-Responsive design
+→ Create new todo items
+→ Read existing todo items
+→ Update todo items
+→ Delete todo items
+→ User authentication 
+→ Responsive design
 
 
 
