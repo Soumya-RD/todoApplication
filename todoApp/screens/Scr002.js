@@ -1,15 +1,55 @@
 // Login    Page
 
 
-// registation 
-
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
-import React from 'react'
+import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import React, { useState } from 'react'
 import { MaterialIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
+import axios from 'axios';
 
+const Scr001 = ({ navigation }) => {
 
-const Scr001 = ({navigation}) => {
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [userNameFromServer, setUserNameFromServer] = useState('');
+    // const [emailFromServer, setEmailFromServer] = useState('');
+
+    const handleLogin = async () => {
+        try {
+            const response = await axios.post('http://192.168.244.200:3011/master/todoApp', {
+                username,
+                // email,
+                password
+            });
+            if (response.data && response.data.username) {
+                setUserNameFromServer(response.data.username);
+
+                Alert.alert("Success", `Hello ${username}`);
+                navigation.navigate('Scr003');
+            }
+            // else if (response.data && response.data.email) {
+            //     setEmailFromServer(response.data.email);
+            //     Alert.alert("Success", `Hello ${email}`);
+            //     navigation.navigate('Scr003');
+            // }
+            else {
+                Alert.alert("Error", " username or email not found.");
+            }
+        }
+        catch (error) {
+            if (error.response) {
+                Alert.alert("Error", `Server responded with status code ${error.response.status}:${error.response.data.message}`);
+            } else if (error.request) {
+                Alert.alert("Error", "No response received from the server.");
+            } else {
+                Alert.alert("Error", `Error in making request:${error.message}`);
+            }
+            console.error(error);
+        }
+
+    };
+
     return (
         <View style={styles.Container}>
             <View>
@@ -21,18 +61,25 @@ const Scr001 = ({navigation}) => {
                 <View style={styles.usernameContainer}>
                     {/* username */}
                     <MaterialIcons name="drive-file-rename-outline" size={24} color="black" />
-                    <TextInput placeholder='username or email' style={styles.textInput} />
+                    <TextInput placeholder='username or email' style={styles.textInput}
+                        value={username}
+                        onChangeText={setUsername}
+                    />
                 </View>
                 <View style={styles.passwordContainer}>
                     {/* password */}
                     <MaterialIcons name="password" size={24} color="black" />
 
-                    <TextInput placeholder='password' style={styles.textInput} />
+                    <TextInput placeholder='password' style={styles.textInput}
+                        value={password}
+                        onChangeText={setPassword}
+                        secureTextEntry={true}
+                    />
                     <Ionicons name="eye" size={24} color="black" />
                 </View>
             </View>
             <View style={styles.LOginContainer}>
-                <TouchableOpacity onPress={()=>navigation.navigate('Scr003')}>
+                <TouchableOpacity onPress={handleLogin}>
                     <Text style={styles.SubmitText}>Login</Text>
                 </TouchableOpacity>
             </View>
@@ -41,7 +88,7 @@ const Scr001 = ({navigation}) => {
                     <Text style={styles.CreateNew}>Create a new account? </Text>
                 </View>
                 <View style={styles.loginButtom}>
-                    <TouchableOpacity onPress={()=>navigation.navigate('Scr001')}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Scr001')}>
                         <Text style={styles.SignUpText}>SignUp</Text>
                     </TouchableOpacity>
                 </View>
@@ -64,7 +111,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginLeft: 90,
         fontSize: 25,
-        marginTop:55
+        marginTop: 55
     },
     inputContainer: {
         marginTop: 15,
@@ -113,7 +160,7 @@ const styles = StyleSheet.create({
         marginTop: 25,
         marginLeft: 70
     },
-   CreateNew: {
+    CreateNew: {
         fontWeight: 'bold',
         textAlign: 'center',
         marginTop: 2,

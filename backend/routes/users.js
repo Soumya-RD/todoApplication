@@ -26,5 +26,27 @@ router.post('/', async (req, res) => {
         res.status(400).json({ message: err.message });
     }
 });
+router.post('/todoApp', async (req, res) => {
+    try {
+        const { username, password } = req.body;
+
+        const user = await User.findOne({ username });
+
+        if (!user) {
+            return res.status(400).json({ message: 'User not found' });
+
+        }
+        if (password !== user.password) {
+            return res.status(400).json({ message: 'Invalid password' });
+        }
+
+        res.json({
+            username: user.username,
+            message: `Hello,${user.username}!`
+        });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+})
 
 module.exports = router;
