@@ -34,3 +34,8 @@ Ensure you have the following installed:
 Node.js (including npm)
 MongoDB (or use a cloud service like MongoDB Atlas)
 Expo CLI (for running React Native apps)
+
+
+
+# Clone the repository
+https://github.com/Soumya-RD/todoApplication.git
